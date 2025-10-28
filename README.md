@@ -164,7 +164,6 @@ Jane Smith  | 2025-10-28 | 08:32:45   | Present
 
 - **YOLOv8** is used for real-time face detection.
 - **TensorFlow** handles embedding extraction and face recognition.
-- **Scikit-learn (SVM)** is used for classification of faces.
 - The system uses **Mediapipe** for face landmarks and alignment.
 
 ---
