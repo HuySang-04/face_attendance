@@ -189,7 +189,7 @@ outputs/crop_face_dataset/
 ## 🧑‍💻 Tác giả
 
 **Lê Huy Sáng**  
-📧 lehuysang01.email@example.com  
+📧 lehuysang01.@gmail.com  
 📍 
 
 ---

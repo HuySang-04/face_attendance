@@ -197,7 +197,7 @@ flask==3.1.2
 ## 🧑‍💻 Author
 
 **Le Huy Sang**  
-📧 lehuysang01.email@example.com  
+📧 lehuysang01@gmail.com  
 📍 
 
 ---
