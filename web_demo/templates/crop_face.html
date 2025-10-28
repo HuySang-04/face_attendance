@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Ký Khuôn Mặt - Hệ Thống Nhận Diện</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #333;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 30px;
+        }
+
+        .video-section {
+            flex: 1;
+            min-width: 400px;
+            padding: 20px;
+        }
+
+        .video-container {
+            background-color: #1a1a2e;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            padding-top: 75%;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        #videoElement {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .controls-section {
+            flex: 1;
+            min-width: 400px;
+            padding: 20px;
+        }
+
+        .control-panel {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1.1rem;
+        }
+
+        #user-name {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        #user-name:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            padding: 15px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn i {
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+        }
+
+        .btn-success:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+        }
+
+        .btn-warning {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+        }
+
+        .btn-warning:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+        }
+
+        .btn-danger:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+        }
+
+        .btn:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .status-panel {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .status-panel h3 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 12px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding: 12px 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .status-item:hover {
+            background: #e9ecef;
+        }
+
+        .status-label {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .status-value {
+            font-weight: 700;
+        }
+
+        .count-high {
+            color: #2ecc71;
+        }
+
+        .count-medium {
+            color: #f39c12;
+        }
+
+        .count-low {
+            color: #e74c3c;
+        }
+
+        .instructions {
+            margin-top: 25px;
+            padding: 25px;
+            background: linear-gradient(135deg, #e8f4fc, #d4edfa);
+            border-radius: 15px;
+            border-left: 5px solid #3498db;
+        }
+
+        .instructions h4 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .instructions ol {
+            padding-left: 20px;
+        }
+
+        .instructions li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: white;
+            background: linear-gradient(to right, #2c3e50, #4ca1af);
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+
+            .buttons-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .video-section,
+            .controls-section {
+                min-width: 100%;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-robot"></i>
+                <span>Face Recognition System</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/"><i class="fas fa-home"></i> Trang Chủ</a></li>
+                <li><a href="/crop_face" class="active"><i class="fas fa-user-plus"></i> Đăng Ký Khuôn Mặt</a></li>
+                <li><a href="/attendance"><i class="fas fa-user-check"></i> Điểm Danh</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-user-plus"></i> Đăng Ký Khuôn Mặt</h1>
+            <p>Thêm khuôn mặt mới vào hệ thống nhận diện</p>
+        </header>
+
+        <div class="main-content">
+            <div class="video-section">
+                <div class="video-container">
+                    <img id="videoElement" style="display:none;" alt="Video Feed">
+                </div>
+
+                <div class="instructions">
+                    <h4><i class="fas fa-info-circle"></i> Hướng dẫn sử dụng:</h4>
+                    <ol>
+                        <li>Nhập họ tên vào ô bên cạnh</li>
+                        <li>Nhấn "Bật Camera" để khởi động camera</li>
+                        <li>Định vị khuôn mặt trong khung hình</li>
+                        <li>Nhấn "Crop Khuôn Mặt" 5 lần để thu thập dữ liệu</li>
+                        <li>Nhấn "Cập Nhật" để lưu dữ liệu vào hệ thống</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="controls-section">
+                <div class="control-panel">
+                    <div class="input-group">
+                        <label for="user-name"><i class="fas fa-user"></i> Họ và tên:</label>
+                        <input type="text" id="user-name" placeholder="Nhập họ tên của bạn">
+                    </div>
+
+                    <div class="buttons-grid">
+                        <button id="start-camera" class="btn btn-primary">
+                            <i class="fas fa-play"></i> Bật Camera
+                        </button>
+                        <button id="stop-camera" class="btn btn-danger">
+                            <i class="fas fa-stop"></i> Dừng Camera
+                        </button>
+                        <button id="crop-btn" class="btn btn-success">
+                            <i class="fas fa-crop-alt"></i> Crop Khuôn Mặt
+                        </button>
+                        <button id="update-btn" class="btn btn-warning">
+                            <i class="fas fa-sync-alt"></i> Cập Nhật
+                        </button>
+                    </div>
+                </div>
+
+                <div class="status-panel">
+                    <h3><i class="fas fa-chart-bar"></i> Trạng thái hệ thống</h3>
+                    <div class="status-item">
+                        <span class="status-label">Trạng thái camera:</span>
+                        <span class="status-value" id="camera-status">Chưa kích hoạt</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Số lần crop còn lại:</span>
+                        <span class="status-value" id="crop-count">5</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Người dùng hiện tại:</span>
+                        <span class="status-value" id="current-user">Chưa có</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Hệ thống nhận diện khuôn mặt &copy; 2025</p>
+        </footer>
+    </div>
+
+    <script>
+        // JavaScript code remains the same as your original
+        let userName = '';
+        let cropCount = 5;
+        let cameraActive = false;
+
+        document.getElementById('user-name').addEventListener('input', handleNameInput);
+        document.getElementById('start-camera').addEventListener('click', startCamera);
+        document.getElementById('stop-camera').addEventListener('click', stopCamera);
+        document.getElementById('crop-btn').addEventListener('click', cropFace);
+        document.getElementById('update-btn').addEventListener('click', Update);
+
+        function handleNameInput() {
+            userName = document.getElementById('user-name').value.trim();
+            document.getElementById('current-user').textContent = userName || 'Chưa có';
+
+            // Reset trạng thái khi người dùng nhập tên mới
+            if (userName) {
+                document.getElementById('crop-btn').disabled = false;
+                cropCount = 5;
+                updateCropCount();
+            }
+        }
+
+        function startCamera() {
+            fetch('/start_camera', { method: 'POST' })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    const video = document.getElementById('videoElement');
+                    video.src = "/video_feed?" + new Date().getTime();
+                    video.style.display = 'block';
+
+                    cameraActive = true;
+                    updateCameraStatus();
+                })
+                .catch(error => {
+                    console.error('Error starting camera:', error);
+                    alert('Không thể khởi động camera. Vui lòng thử lại!');
+                });
+        }
+
+        function stopCamera() {
+            fetch('/stop_camera', { method: 'POST' })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    const video = document.getElementById('videoElement');
+                    video.style.display = 'none';
+
+                    cameraActive = false;
+                    updateCameraStatus();
+
+                    // Reset trạng thái khi dừng camera
+                    document.getElementById('crop-btn').disabled = false;
+                    cropCount = 5;
+                    updateCropCount();
+                })
+                .catch(error => {
+                    console.error('Error stopping camera:', error);
+                    alert('Không thể dừng camera. Vui lòng thử lại!');
+                });
+        }
+
+        function cropFace(){
+            if (!userName) {
+                alert('Vui lòng nhập họ tên trước!');
+                return;
+            }
+
+            if (!cameraActive) {
+                alert('Vui lòng bật camera trước!');
+                return;
+            }
+
+            fetch('/crop_face', {
+                    method: 'POST',
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({ name: userName }),
+                })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.status === "crop success") {
+                        cropCount = data.count;
+                        updateCropCount();
+                    } else {
+                        alert('Không thể crop khuôn mặt. Vui lòng thử lại!');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error cropping face:', error);
+                    alert('Có lỗi xảy ra khi crop khuôn mặt. Vui lòng thử lại!');
+                });
+        }
+
+        function Update(){
+            if (!userName) {
+                alert('Vui lòng nhập họ tên trước!');
+                return;
+            }
+
+            fetch('/update', {method: 'POST'})
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.status === "success") {
+                        alert('Đã cập nhật dữ liệu thành công!');
+                        // Reset trạng thái
+                        document.getElementById('crop-btn').disabled = false;
+                        cropCount = 5;
+                        updateCropCount();
+                        document.getElementById('user-name').value = '';
+                        userName = '';
+                        document.getElementById('current-user').textContent = 'Chưa có';
+                    } else {
+                        alert('Không thể cập nhật dữ liệu. Vui lòng thử lại!');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error updating:', error);
+                    alert('Có lỗi xảy ra khi cập nhật. Vui lòng thử lại!');
+                });
+        }
+
+        function updateCameraStatus() {
+            const statusElement = document.getElementById('camera-status');
+            if (cameraActive) {
+                statusElement.textContent = 'Đang hoạt động';
+                statusElement.style.color = '#2ecc71';
+            } else {
+                statusElement.textContent = 'Chưa kích hoạt';
+                statusElement.style.color = '#e74c3c';
+            }
+        }
+
+        function updateCropCount() {
+            const countElement = document.getElementById('crop-count');
+            countElement.textContent = cropCount;
+
+            // Thay đổi màu sắc dựa trên số lần crop còn lại
+            if (cropCount >= 4) {
+                countElement.className = 'status-value count-high';
+            } else if (cropCount >= 2) {
+                countElement.className = 'status-value count-medium';
+            } else {
+                countElement.className = 'status-value count-low';
+            }
+        }
+
+        // Khởi tạo trạng thái ban đầu
+        updateCameraStatus();
+        updateCropCount();
+    </script>
+</body>
+</html>
