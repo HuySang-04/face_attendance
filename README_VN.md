@@ -1,6 +1,6 @@
-# 🧠🤖 Face Attendance System (YOLOv8 + TensorFlow + Flask)
+# 🧠🤖 Face Attendance System (FaceNet + YOLOv8 + TensorFlow + Flask)
 
-Hệ thống **điểm danh tự động bằng nhận diện khuôn mặt**, được xây dựng bằng **YOLOv8**, **TensorFlow**, và **Flask**.  
+Hệ thống **điểm danh tự động bằng nhận diện khuôn mặt**, được xây dựng bằng **FaceNet**, **YOLOv8**, **TensorFlow**, và **Flask**.  
 Dự án cho phép người dùng **thu thập dữ liệu khuôn mặt**, **huấn luyện mô hình**, và **thực hiện điểm danh trực tuyến** qua giao diện web thân thiện.
 
 ---
@@ -100,7 +100,7 @@ Cài đặt pretrained YOLOv8 model:
 | mediapipe | 0.10.21 | Phát hiện khuôn mặt |
 | scikit-learn | 1.7.2 | Phân loại và đánh giá mô hình |
 | openpyxl | 3.1.5 | Làm việc với file Excel |
-| ultralytics | 8.3.213 | YOLOv8 để phát hiện khuôn mặt |
+| ultralytics | 8.3.213 | YOLOv8 để phát hiện khuôn mặt và phân loại real/fake|
 | Pillow | 11.3.0 | Xử lý ảnh |
 | Flask | 3.1.2 | Giao diện web backend |
 
