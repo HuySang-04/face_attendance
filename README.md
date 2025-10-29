@@ -1,6 +1,6 @@
 # 🧠🤖 Face Attendance System (FaceNet + YOLOv8 + TensorFlow + Flask)
 
-An **AI-powered Face Recognition Attendance System** built with **YOLOv8**, **TensorFlow**, and **Flask**.  
+An **AI-powered Face Recognition Attendance System** built with  **FaceNet**, **YOLOv8**, **TensorFlow**, and **Flask**.  
 This project enables real-time **face registration**, **automatic attendance tracking**, and **data export** to Excel files.  
 It’s designed to provide a smart, modern, and efficient attendance solution powered by deep learning.
 
@@ -10,7 +10,6 @@ It’s designed to provide a smart, modern, and efficient attendance solution po
 
 ✅ **Face Registration:**  
 Register new users by capturing facial images using a webcam.  
-Automatically detect and crop faces using YOLOv8 for accurate training.
 
 ✅ **Real-Time Attendance:**  
 Detects and recognizes faces live via the camera.  
@@ -107,6 +106,7 @@ Download pretrained YOLOv8 model:
 ## 🧠 Technologies Used
 
 - **Python 3.10+**
+- **FaceNet**
 - **YOLOv8 (Ultralytics)**
 - **TensorFlow**
 - **MediaPipe**
