@@ -1,4 +1,4 @@
-# 🧠🤖 Face Attendance System (YOLOv8 + TensorFlow + Flask)
+# 🧠🤖 Face Attendance System (FaceNet + YOLOv8 + TensorFlow + Flask)
 
 An **AI-powered Face Recognition Attendance System** built with **YOLOv8**, **TensorFlow**, and **Flask**.  
 This project enables real-time **face registration**, **automatic attendance tracking**, and **data export** to Excel files.  
