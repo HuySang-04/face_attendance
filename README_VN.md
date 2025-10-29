@@ -11,7 +11,7 @@ Dự án cho phép người dùng **thu thập dữ liệu khuôn mặt**, **hu�
 ✅ Huấn luyện mô hình nhận diện dựa trên ảnh thu thập  
 ✅ Giao diện web dễ dùng (Flask)  
 ✅ Tự động lưu kết quả điểm danh vào file Excel  
-✅ Sử dụng YOLOv8 để phát hiện khuôn mặt chính xác, nhanh chóng  
+✅ Sử dụng YOLOv8 để phát hiện khuôn mặt chính xác, phân loại real/fake, nhanh chóng  
 
 ---
 
