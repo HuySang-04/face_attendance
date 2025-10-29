@@ -162,7 +162,8 @@ Jane Smith  | 2025-10-28 | 08:32:45   | Present
 
 ## 🧪 Model Details
 
-- **YOLOv8** is used for real-time face detection.
+- **FaceNet** is used for face embeding
+- **YOLOv8** is used for real-time face detection and classify real/fake.
 - **TensorFlow** handles embedding extraction and face recognition.
 - The system uses **Mediapipe** for face landmarks and alignment.
 
